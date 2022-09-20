@@ -1,7 +1,8 @@
 import SocketServer
 import SimpleHTTPServer
 import urllib
-PORT = 8080
+import os
+PORT = int(os.getenv("PORT", default=8080))
 class MyProxy(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
         url=self.path[1:]
